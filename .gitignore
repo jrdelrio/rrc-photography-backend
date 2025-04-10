@@ -1,2 +1,5 @@
 # nada aun
-keys/
+*.pem
+__pycache__/
+venv/
+.DS_Store

@@ -11,14 +11,8 @@ load_dotenv();
 
 app = Flask(__name__)
 
-allowed_origins = [
-    "https://www.raimundodelrio.cl",
-    'http://localhost:3001'
-    ]
-# CORS(app, resources={r"/*": {"origins": alowed_origins}}, expose_headers=["Content-Type"], supports_credentials=True)
-# CORS(app, resources={r"/*": {"origins": "https://www.raimundodelrio.cl"}}, expose_headers=["Content-Type"])
-# CORS(app, resources={r"/*": {"origins": allowed_origins}})
-CORS(app, resources={r"/*": {"origins": '*'}})
+
+CORS(app, resources={r"/*": {"origins": "https://www.raimundodelrio.cl"}})
 
 app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
 
@@ -31,16 +25,15 @@ def get_db():
         db = g._database = sqlite3.connect(DATABASE)
     return db
 
-@app.route('/', methods=['GET'])
+@app.route('/test-connection', methods=['GET'])
 def test_connection():
+    print("✅ Connection test endpoint hit")
     connection = False
     if get_db:
         connection = True
 
     response = {
-        'message': 'Conexión exitosa',
-        'db_connection': connection
-        }
+        'message': 'RRC Photography API working perfectly! 🚀'}
     
     return jsonify(response)
 
@@ -189,7 +182,7 @@ def send_email_to_leed():
             email_template = email_template.replace("{{fromMessage}}", data.get("fromMessage", ""))
             
             params = {
-                "from": "Raimundo del Rio <rdelrio62@gmail.com>",
+                "from": "Raimundo del Rio <contacto@chilisites.com>",
                 "to": request.json["fromEmail"],
                 "subject": "¡Gracias por tu mensaje y por visitar mi portafolio! 🌟",
                 "html": email_template
@@ -204,4 +197,4 @@ def send_email_to_leed():
     return {"email": email}
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    app.run(host="0.0.0.0", port=5003)
