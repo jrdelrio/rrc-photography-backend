@@ -10,3 +10,4 @@ gunicorn
 cloudinary
 flask-admin
 typing-extensions
+resend

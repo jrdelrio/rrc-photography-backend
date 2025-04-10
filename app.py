@@ -7,15 +7,17 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, text
 from dotenv import load_dotenv
 import resend
 
-load_dotenv();
+load_dotenv()
 
 app = Flask(__name__)
 
 
 CORS(app, resources={r"/*": {"origins": "https://www.raimundodelrio.cl"}})
 
-app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
+# app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
 
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
+print(RESEND_API_KEY)
 DATABASE = os.path.join(os.path.dirname(__file__), 'photos.db')
 
 def get_db():
@@ -165,30 +167,31 @@ def get_photos_from_gallery(gallery_name):
     except Exception as e:
         return jsonify({'error': str(e)}), 500  # 500 para indicar error de servidor interno
 
-@app.route("/send-email-thanks-for-contact", methods=["POST"])
+@app.route("/send-thanks-email", methods=["POST"])
 def send_email_to_leed():
     
     try:
-        resend.api_key = os.environ["RESEND_API_KEY"]
+        resend.api_key = RESEND_API_KEY
         data = request.json
         
-        file_path = os.path.join(os.path.dirname(__file__), "templates", "email-to-leed.html")
+        file_path = os.path.join(os.path.dirname(__file__), "templates", "thanks-email.html")
         
         with open(file_path, "r", encoding="utf-8") as file:
             email_template = file.read()
-            email_template = email_template.replace("{{fromName}}", data.get("fromName", ""))
-            email_template = email_template.replace("{{fromEmail}}", data.get("fromEmail", ""))
-            email_template = email_template.replace("{{fromPhone}}", data.get("fromPhone", ""))
-            email_template = email_template.replace("{{fromMessage}}", data.get("fromMessage", ""))
+            email_template = email_template.replace("{{from_name}}", data.get("fromName", ""))
+            email_template = email_template.replace("{{from_email}}", data.get("fromEmail", ""))
+            email_template = email_template.replace("{{from_phone}}", data.get("fromPhone", ""))
+            email_template = email_template.replace("{{from_message}}", data.get("fromMessage", ""))
             
-            params = {
-                "from": "Raimundo del Rio <contacto@chilisites.com>",
-                "to": request.json["fromEmail"],
-                "subject": "¡Gracias por tu mensaje y por visitar mi portafolio! 🌟",
-                "html": email_template
-            }
-            
-            email = resend.Emails.send(params)
+        
+        params: resend.Emails.SendParams = {
+            "from": "Raimundo del Rio <contacto@chilisites.com>",
+            "to": data["fromEmail"],
+            "subject": "¡Gracias por tu mensaje y por visitar mi portafolio! 🌟",
+            "html": email_template
+        }
+        
+        email = resend.Emails.send(params)
             
     except Exception as e:
         print(f"Error: {e}")
