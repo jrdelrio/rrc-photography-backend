@@ -13,7 +13,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 app = Flask(__name__)
 
 
-CORS(app, resources={r"/*": {"origins": "https://www.raimundodelrio.cl"}})
+CORS(app, resources={r"/*": {"origins": ["https://www.raimundodelrio.cl", "http://localhost:3001"]}})
 
 # app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
 
