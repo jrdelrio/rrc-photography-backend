@@ -84,7 +84,6 @@ def get_carrousel_images():
         
         # Almacena los resultados de fetchall() en una variable y úsala
         rows = cursor.fetchall()
-        print("Filas:", rows)
 
         # Crear la lista con los resultados
         carrousel_images = [
