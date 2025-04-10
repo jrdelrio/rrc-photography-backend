@@ -1,104 +1,103 @@
-<html>
-    <head></head>
-    <body>
-        <p>Hola {{from_name}},</p>
-        <p>
-            Muchas gracias por tomarte el tiempo de visitar mi portafolio
-            fotogr&aacute;fico y enviarme un mensaje. Aprecio profundamente tu
-            inter&eacute;s en mi trabajo, donde cada imagen busca contar
-            historias y capturar momentos &uacute;nicos.
-        </p>
-        <p>
-            Te responder&eacute; tu mensaje lo antes posible y, mientras tanto,
-            te invito a visitar mi cuenta de Instagram 📸, donde podr&aacute;s
-            encontrar m&aacute;s de mi trabajo y seguir explorando nuevas
-            fotograf&iacute;as:<br />👉
-            <a
-                href="https://www.instagram.com/raimundodelrio/"
-                target="_new"
-                rel="noopener"
-                ><strong>@raimundodelrio</strong></a
-            >
-        </p>
-        <p>&iexcl;Es un placer contactar contigo!</p>
-        <p>Un cordial saludo,</p>
-        <p><br /><strong>Raimundo del R&iacute;o C.</strong></p>
-        <p><em>Fot&oacute;grafo de momentos y culturas</em></p>
-        <p>--</p>
-        <p>Datos recibidos:</p>
-        <p>Nombre: {{from_name}}</p>
-        <p>Email: {{from_email}}</p>
-        <p>Tel&eacute;fono: {{from_phone}}</p>
-        <p>Mensaje: {{from_message}}</p>
-        <p><em>-----</em></p>
-        <p>
-            <span style="color: #a65454"><em>Hello {{from_name}},</em></span>
-        </p>
-        <p>
-            <span style="color: #a65454"
-                ><em
-                    >Thank you so much for taking the time to visit my
-                    photography portfolio and for reaching out. I truly
-                    appreciate your interest in my work, where each image
-                    strives to tell stories and capture unique moments.</em
-                ></span
-            >
-        </p>
-        <p>
-            <span style="color: #a65454"
-                ><em
-                    >I will respond to your message as soon as possible. In the
-                    meantime, I invite you to explore my Instagram page 📸,
-                    where you can discover more of my work and continue
-                    exploring new photographs:</em
-                ></span
-            ><br /><span style="color: #a65454"
-                ><em
-                    >👉
-                    <a
-                        style="color: #a65454"
-                        href="https://www.instagram.com/raimundodelrio/"
-                        target="_new"
-                        rel="noopener"
-                        ><strong>@raimundodelrio</strong></a
-                    ></em
-                ></span
-            >
-        </p>
-        <p>
-            <span style="color: #a65454"
-                ><em>It&rsquo;s a pleasure to connect with you!</em></span
-            >
-        </p>
-        <p>
-            <span style="color: #a65454"><em>Best regards,</em></span>
-        </p>
-        <p>&nbsp;</p>
-        <p>
-            <span style="color: #a65454"
-                ><em><strong>Raimundo del R&iacute;o C.</strong></em></span
-            >
-        </p>
-        <p>
-            <span style="color: #a65454"
-                ><em
-                    >Photographer of moments<span style="color: #ba372a">
-                        and cultu</span
-                    >res</em
-                ></span
-            >
-        </p>
-        <p>
-            <span style="color: #a65454"><em>-----</em></span>
-        </p>
-        <p>
-            <span style="color: #a65454"><em>Received data:</em></span>
-        </p>
-        <p><span style="color: #ba372a">Name: {{from_name}}</span></p>
-        <p><span style="color: #ba372a">Email: {{from_email}}</span></p>
-        <p><span style="color: #ba372a">Phone: {{from_phone}}</span></p>
-        <p><span style="color: #ba372a">Message: {{from_message}}</span></p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-    </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gracias por tu mensaje ✨</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      background-color: #ffffff;
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    h1 {
+      color: #d62828;
+      font-size: 22px;
+    }
+    p {
+      font-size: 16px;
+      color: #333333;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .highlight {
+      color: #d62828;
+      font-weight: bold;
+    }
+    a {
+      color: #ba372a;
+      text-decoration: none;
+    }
+    .signature {
+      margin-top: 30px;
+    }
+    .divider {
+      border-top: 1px solid #dddddd;
+      margin: 30px 0;
+    }
+    .block-en {
+      color: #a65454;
+      font-style: italic;
+    }
+    .info-line {
+      color: #ba372a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 ¡Gracias por tu mensaje, {{from_name}}!</h1>
+    
+    <p>
+      Muchas gracias por tomarte el tiempo de visitar mi portafolio fotográfico y escribirme. 
+      Aprecio profundamente tu interés en mi trabajo, donde cada imagen busca contar historias y capturar momentos únicos.
+    </p>
+
+    <p>
+      Te responderé tu mensaje lo antes posible. Mientras tanto, te invito a conocer más sobre mi trabajo en Instagram:<br />
+      👉 <a href="https://www.instagram.com/raimundodelrio/" target="_blank"><strong>@raimundodelrio</strong></a>
+    </p>
+
+    <p>¡Es un placer conectar contigo!</p>
+
+    <div class="signature">
+      <p><strong>Raimundo del Río C.</strong><br />
+      <em>Fotógrafo de momentos y culturas</em></p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="highlight">📥 Datos recibidos:</p>
+    <p class="info-line">Nombre: {{from_name}}</p>
+    <p class="info-line">Email: {{from_email}}</p>
+    <p class="info-line">Teléfono: {{from_phone}}</p>
+    <p class="info-line">Mensaje: {{from_message}}</p>
+
+    <div class="divider"></div>
+
+    <div class="block-en">
+      <p>Hello {{from_name}},</p>
+      <p>
+        Thank you so much for visiting my photography portfolio and reaching out. 
+        I truly appreciate your interest in my work, where every photo aims to tell stories and capture unique moments.
+      </p>
+      <p>
+        I’ll get back to your message as soon as possible. Meanwhile, feel free to explore more on my Instagram:<br />
+        👉 <a href="https://www.instagram.com/raimundodelrio/" target="_blank"><strong>@raimundodelrio</strong></a>
+      </p>
+      <p>It’s a pleasure to connect with you!</p>
+      <p>Best regards,</p>
+      <p><strong>Raimundo del Río C.</strong><br />
+      Photographer of moments and cultures</p>
+    </div>
+  </div>
+</body>
 </html>

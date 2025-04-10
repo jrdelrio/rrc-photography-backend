@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuevo mensaje desde tu portafolio</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      background-color: #ffffff;
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 22px;
+      color: #333333;
+    }
+    p {
+      font-size: 16px;
+      color: #444444;
+      line-height: 1.5;
+    }
+    .label {
+      font-weight: bold;
+      color: #222;
+    }
+    .font-red {
+      color: #d62828;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #999999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📬 ¡Tienes un nuevo mensaje, Raimundo!</h1>
+    
+    <p>Alguien ha usado el formulario de contacto en tu portafolio para dejarte un mensaje.</p>
+    
+    <p><span class="label">👤 Nombre:</span> <p class="font-red">{{from_name}}</p></p>
+    <p><span class="label">✉️ Email:</span> <p class="font-red">{{from_email}}</p></p>
+    <p><span class="label">📞 Teléfono:</span> <p class="font-red">{{from_phone}}</p></p>
+    <p><span class="label">💬 Mensaje:</span></p>
+    <p class="font-red">{{from_message}}</p>
+    
+    <p>⏰ <span class="label">Recibido en:</span></p>
+    <p class="font-red">{{timestamp}}</p>
+    
+    <p>¡No dejes esperando a esta persona interesada! 😉</p>
+
+    <div class="footer">
+      Este mensaje fue generado automáticamente desde tu sitio web: raimundodelrio.cl
+    </div>
+  </div>
+</body>
+</html>

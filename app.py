@@ -2,12 +2,13 @@ import os
 import sqlite3
 from flask import Flask, request, jsonify, g
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, text
+# from flask_sqlalchemy import SQLAlchemy
+# from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, text
 from dotenv import load_dotenv
 import resend
+from datetime import datetime
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 
 app = Flask(__name__)
 
@@ -17,7 +18,6 @@ CORS(app, resources={r"/*": {"origins": "https://www.raimundodelrio.cl"}})
 # app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
 
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
-print(RESEND_API_KEY)
 DATABASE = os.path.join(os.path.dirname(__file__), 'photos.db')
 
 def get_db():
@@ -169,7 +169,7 @@ def get_photos_from_gallery(gallery_name):
 
 @app.route("/send-thanks-email", methods=["POST"])
 def send_email_to_leed():
-    
+    print("Endpoint /send-thanks-email hit")
     try:
         resend.api_key = RESEND_API_KEY
         data = request.json
@@ -198,6 +198,41 @@ def send_email_to_leed():
         return jsonify({"error": str(e)}), 500
     
     return {"email": email}
+
+@app.route("/send-intern-email", methods=["POST"])
+def send_intern_email():
+    print("Endpoint /send-intern-email hit")
+    
+    try:
+        resend.api_key = RESEND_API_KEY
+        data = request.json
+        
+        file_path = os.path.join(os.path.dirname(__file__), "templates", "intern-email.html")
+        
+        with open(file_path, "r", encoding="utf-8") as file:
+            email_template = file.read()
+            email_template = email_template.replace("{{from_name}}", data.get("fromName", ""))
+            email_template = email_template.replace("{{from_email}}", data.get("fromEmail", ""))
+            email_template = email_template.replace("{{from_phone}}", data.get("fromPhone", ""))
+            email_template = email_template.replace("{{from_message}}", data.get("fromMessage", ""))
+            email_template = email_template.replace("{{timestamp}}", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            
+        
+        params: resend.Emails.SendParams = {
+            "from": "Raimundo del Rio <contacto@chilisites.com>",
+            "to": "rdelrio62@gmail.com",
+            "subject": "📩 Nuevo mensaje desde tu portafolio web",
+            "html": email_template
+        }
+        
+        email = resend.Emails.send(params)
+            
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)}), 500
+    
+    return {"email": email}
+    
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5003)
