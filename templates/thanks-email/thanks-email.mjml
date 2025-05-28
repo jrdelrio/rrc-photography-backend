@@ -1,0 +1,43 @@
+<mjml>
+  <mj-body background-color="#111111">
+    <mj-section padding="20px 0">
+      <mj-column background-color="#1a1a1a" padding="30px" border-radius="12px">
+        <mj-image src="https://res.cloudinary.com/dcvtdp27p/image/upload/v1748390391/rrc-logo-trnsp-bg_djpotn.png" alt="Chiloé - Raimundo del Río" padding="40px 80px" border-radius="12px" align="center" />
+        <mj-text font-size="22px" color="#ff5555" font-weight="bold"> 📸 ¡Gracias por tu mensaje, {{from_name}}! </mj-text>
+
+        <mj-text font-size="16px" color="#f0f0f0" line-height="1.6">
+          Muchas gracias por tomarte el tiempo de visitar mi portafolio fotográfico y escribirme.<br />
+          Aprecio profundamente tu interés en mi trabajo, donde cada imagen busca contar historias y capturar momentos únicos.
+        </mj-text>
+
+        <mj-text font-size="16px" color="#f0f0f0" line-height="1.6">
+          Te responderé tu mensaje lo antes posible. Mientras tanto, te invito a conocer más sobre mi trabajo en Instagram:<br />
+          👉 <a href="https://www.instagram.com/raimundodelrio/" style="color: #ff5555; text-decoration: none"><strong>@raimundodelrio</strong></a>
+        </mj-text>
+
+        <mj-text font-size="16px" color="#f0f0f0">¡Es un placer conectar contigo!</mj-text>
+
+        <mj-text font-size="16px" color="#f0f0f0" font-weight="bold">
+          Raimundo del Río C.<br />
+          <em>Fotógrafo de momentos y culturas</em>
+        </mj-text>
+
+        <mj-image src="https://raimundodelrio-photos-bucket.s3.sa-east-1.amazonaws.com/compr+images/Chiloe%CC%81/Chiloe-15.webp" alt="Chiloé - Raimundo del Río" padding="40px 80px" border-radius="12px" align="center" />
+
+        <mj-divider border-color="#333333" border-width="1px" padding="20px 0" />
+
+        <mj-text font-size="16px" color="#aaaaaa" font-style="italic">
+          Hello {{from_name}},<br /><br />
+          Thank you so much for visiting my photography portfolio and reaching out. I truly appreciate your interest in my work, where every photo aims to tell stories and capture unique moments.<br /><br />
+          I’ll get back to your message as soon as possible. Meanwhile, feel free to explore more on my Instagram:<br />
+          👉 <a href="https://www.instagram.com/raimundodelrio/" style="color: #ff5555"><strong>@raimundodelrio</strong></a
+          ><br /><br />
+          It’s a pleasure to connect with you!<br />
+          Best regards,<br />
+          <strong>Raimundo del Río C.</strong><br />
+          Photographer of moments and cultures
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

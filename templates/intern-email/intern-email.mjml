@@ -1,0 +1,36 @@
+<mjml>
+  <mj-body background-color="#111111">
+    <mj-section padding="20px 0">
+      <mj-column background-color="#1a1a1a" padding="30px" border-radius="12px">
+      <mj-image src="https://res.cloudinary.com/dcvtdp27p/image/upload/v1748390391/rrc-logo-trnsp-bg_djpotn.png" alt="Chiloé - Raimundo del Río" padding="40px 80px" border-radius="12px" align="center" />
+        <mj-text font-size="22px" color="#ff5555" font-weight="bold"> 📬 ¡Tienes un nuevo mensaje, Raimundo! </mj-text>
+
+        <mj-text font-size="16px" color="#f0f0f0" line-height="1.6"> Alguien ha usado el formulario de contacto en tu portafolio para dejarte un mensaje. </mj-text>
+
+        <mj-text font-size="16px" color="#aaaaaa"><strong>👤 Nombre:</strong></mj-text>
+        <mj-text font-size="16px" color="#ff5555">{{from_name}}</mj-text>
+
+        <mj-text font-size="16px" color="#aaaaaa"><strong>✉️ Email:</strong></mj-text>
+        <mj-text font-size="16px" color="#ff5555">{{from_email}}</mj-text>
+
+        <mj-text font-size="16px" color="#aaaaaa"><strong>📞 Teléfono:</strong></mj-text>
+        <mj-text font-size="16px" color="#ff5555">{{from_phone}}</mj-text>
+
+        <mj-text font-size="16px" color="#aaaaaa"><strong>💬 Mensaje:</strong></mj-text>
+        <mj-text font-size="16px" color="#ff5555">{{from_message}}</mj-text>
+
+        <mj-text font-size="16px" color="#aaaaaa"><strong>⏰ Recibido en:</strong></mj-text>
+        <mj-text font-size="16px" color="#ff5555">{{timestamp}}</mj-text>
+
+        <mj-divider border-color="#333333" border-width="1px" padding="20px 0" />
+
+        <mj-text font-size="14px" color="#888888" font-style="italic" align="center"> Este mensaje fue generado automáticamente desde tu sitio web: raimundodelrio.cl </mj-text>
+
+        <mj-divider border-color="#333333" border-width="1px" padding="20px 0" />
+
+        <mj-image src="https://res.cloudinary.com/dcvtdp27p/image/upload/v1748273846/logo-chilisites_1_qykshk.png" alt="Chilisites Logo" width="170px" align="center" padding="10px 0" />
+        <mj-text font-size="14px" color="#777777" align="center"> Email enviado mediante el sistema de mailing de <a href="https://chilisites.com" style="color: #ff5555; text-decoration: none">🌶️chilisites.com</a> </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
