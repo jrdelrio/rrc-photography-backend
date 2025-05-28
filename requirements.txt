@@ -23,7 +23,7 @@ python-dotenv==1.1.0
 PyYAML==6.0.2
 requests==2.32.3
 resend==2.7.0
-setuptools @ file:///private/var/folders/c8/z52g4gc5679gygt8z0dx0jqm0000gn/T/tmpq6bq2bfl/setuptools-68.2.2-py3-none-any.whl#sha256=b454a35605876da60632df1a60f736524eb73cc47bbc9f3f1ef1b644de74fd2a
+setuptools
 six==1.17.0
 SQLAlchemy==2.0.35
 typing_extensions==4.13.0
